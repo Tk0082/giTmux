@@ -1,23 +1,60 @@
 #!/usr/bin/env bash
 #
-
+####################################################
+# TmxFetch - Fetch para Termux com ifos de Sistema
+#
+# B4r@'|'^o
+# alan.bt@hotmail.com
+#
+#   - 1.0.0 [Mar 2022] -- Início de projeto
+#   - 1.0.1 [Ago 2022] -- Opções de cores
+#   - 1.1.0 [Ago 2022] -- Ajuste de dependências de programas
+#   - 1.1.1 [Dez 2022] -- Opções de uso
+#
+####################################################
 clear
 
 dp=0
+c=clear
 vc='[38;2;179;212;64m'
 vm='[38;2;120;144;45m'
-vd='[38;2;76;95;27m'
-cz='[1;30m'
+vd='[1;32m'
+k='[1;30m'
 azd='[1;34m'
 azc='[0;36m'
-azf='[1;36m'
+cy='[1;36m'
 red='[1;31m'
 cla='[1m'
-zro='[0m'
+z='[0m'
+dir="/data/data/com.termux/files"
+
+#==[VERSÃO]=========================
+vrs="$vd TmxFetch - Versão:$cy 1.1.1"
+
+msg="
+$vd
+  TmxFetch - Fetch personalizado com informacoes de Sistema.
+
+  Uso:
+  $vd   Caso já configurado no sistema,$cy tmxfetch$vd apenas.
+  
+  $cy   tmxfecth $k[ $vd-c, -h, -r, -v $k]
+  $cy     -c $vd-- Configurar aplicação no sistema$k [$vd Chamada simples com$cy tmxfetch$k ]
+  $cy     -h $vd-- Mostra esta mensagem -$cy HELP
+  $cy     -r $vd-- Remover o programa do sistema
+  $cy     -v $vd-- Versão
+"
+
+# Verificação de usuário
+if [ "$(whoami)" != "root" ];then
+	usr='tmux'
+else
+	usr='root'
+fi
 
 # Dependências de programa
+# prog - Lista de programas a verificar
 deps(){
-
 prog="
 getconf
 bc
@@ -38,12 +75,23 @@ grep
   done
 }
 
+config(){
+   $c
+   cp $0 $dir/usr/bin/tmxfetch
+   echo -e "$vd Programa instalado, use:$k [$cy tmxfetch$k ].$z"
+   sleep 1
+   exit 0
+   $c
+}
 
-if [ "$(whoami)" != "root" ];then
-	usr='tmux'
-else
-	usr='root'
-fi
+remove(){
+   $c
+   rm -f $dir/usr/bin/tmxfetch
+   echo -ne "$vm Programa removido!!"
+   sleep 1
+   $c
+   exit 0
+}
 
 get_info(){
 	title=$azd$usr@$HOSTNAME
@@ -78,16 +126,16 @@ cat <<EOF
 
 $azd $title
 $azd $qtd
-$azd Distro:$azf	 Termux $d
-$azd OS:$azf		 $os
-$azd K. Name:$azf	 $knm
-$azd K. Version:$azf     $kvs
-$azd Shell:$azf		 ${shell^}
-$azd Uptime:$azf	 $time $zr
-$azd CPU:$azf		 $d_cpu
-$azd RAM:$azf		 $d_mem
-$azd Mem Free:$azf	 $d_memfree
-$azd Architeture:$azf	 $d_arch
+$azd Distro:$cy	 Termux $d
+$azd OS:$cy		 $os
+$azd K. Name:$cy	 $knm
+$azd K. Version:$cy     $kvs
+$azd Shell:$cy		 ${shell^}
+$azd Uptime:$cy	 $time $zr
+$azd CPU:$cy		 $d_cpu
+$azd RAM:$cy		 $d_mem
+$azd Mem Free:$cy	 $d_memfree
+$azd Architeture:$cy	 $d_arch
 
 EOF
 }
@@ -121,6 +169,32 @@ droid="
 [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;2;2;2m [0m[38;2;8;8;8m [0m[38;2;12;12;12m [0m[38;2;13;13;13m [0m[38;2;13;13;13m [0m[38;2;7;7;7m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m[38;2;0;0;0m [0m
 "
 
-deps
-paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)" )
 
+case $1 in
+   -c)
+      config ;;
+   -h)
+      $c
+      echo -e "$msg"
+      echo -ne "Aperte Enter para sair: ";read
+      $c
+      ;;
+   '')
+      deps
+      paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)" )
+      ;;
+   -r)
+      remove ;;
+   -v)
+      $c
+      echo -e "$vrs"
+      sleep 1.5
+      $c ;;
+   *)
+      $c
+      echo -e "$vd Opção inválida, nada a fazer!$z"
+      sleep 1.5
+      $c
+      exit 0
+      ;;
+esac

@@ -1,16 +1,26 @@
 # GitMux
 # Repo de scripts próprios para o app Termux
 
-- Programa V-SSH 
+
+- V-SSH
 
   Conexão ssh com inteface gráfica amigável, uso:
 
-      ./v-ssh -h
+      ./v-ssh -h -h
 
 
-- Programa TMXFETCH 
+- TMXFETCH
 
   Fetch para o Termux, com informações do sistema:
   
       ./tmxfetch.sh
+
+
+- WELCMUX
+  
+  Apresentação para início do terminal, configurar chamada 
+  no seu /etc/bash.bashrc ou /usr/bin/login
+
+     ./welcmux.sh -h
+
 

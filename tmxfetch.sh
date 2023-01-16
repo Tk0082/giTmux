@@ -4,7 +4,7 @@
 # TmxFetch - Fetch para Termux com ifos de Sistema
 #
 # B4r@'|'^o
-# alan.bt@hotmail.com
+# tk0082@hotmail.com
 #
 #   - 1.0.0 [Mar 2022] -- Início de projeto
 #   - 1.0.1 [Ago 2022] -- Opções de cores
@@ -198,3 +198,5 @@ case $1 in
       exit 0
       ;;
 esac
+
+#=[I.G.W.T]========

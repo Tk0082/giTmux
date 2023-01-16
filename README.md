@@ -2,21 +2,21 @@
 # Repo de scripts próprios para o app Termux
 
 
-- V-SSH __
+- V-SSH
 
   Conexão ssh com inteface gráfica amigável, uso:
 
       ./v-ssh -h -h
 
 
-- TMXFETCH __
+- TMXFETCH
 
   Fetch para o Termux, com informações do sistema:
   
       ./tmxfetch.sh
 
 
-- WELCMUX __
+- WELCMUX
   
   Apresentação para início do terminal, configurar chamada 
   no seu /etc/bash.bashrc ou /usr/bin/login

@@ -76,11 +76,6 @@ for i in '| ' '/ ' '--' '\ '; do
 done
 }
 
-con(){
-	setterm --cursor on
-	ssh $usr@$ip -p $port
-	return
-}
 # Dependências de programa
 deps(){ 
 prog="
@@ -149,6 +144,18 @@ remove(){
 	exit 0
 }
 
+con(){
+	setterm --cursor on
+	ssh $usr@$ip -p $port
+	if [ ! $con ];then
+		$c
+		echo -ne "$v ### SAINDO! ###"; sleep 1.5
+		$c
+		exit 1
+	fi
+	return
+}
+
 connect(){
 dialog  --title ' CONEXAO SSH ' --yesno 'Conectar via SSH? ' 5 30 			# CONFIRMACAO DE CONEXAO
 if [ $? = 0 ]; then
@@ -175,16 +182,10 @@ if [ $? = 0 ]; then
 	dialog --stdout --yesno " ** Confirmar Conexao $usr@$ip:$port " 6 60		# CONFIRMACAO DE DADOS E
 	if [ $? = 0 ]; then								# INICIO DA CONEXAO
 		$c
-		while [ ! $con ]; do
+		if [ ! $con ]; then
 			setterm --cursor off
 			load
-			if [ ! $con ];then
-				$c
-				echo -ne "$v ### Erro em conexão! ###"; sleep 1.5
-				$c
-				exit 1
-			fi
-		done
+      fi
 		con
 		sleep 0.3
 	else

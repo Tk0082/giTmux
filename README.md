@@ -6,7 +6,7 @@
 
   Conexão ssh com inteface gráfica amigável, uso:
 
-      ./v-ssh -h -h
+      ./v-ssh -h
 
 
 - TMXFETCH

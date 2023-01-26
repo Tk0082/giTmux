@@ -53,7 +53,7 @@ dp=0
 dir="/data/data/com.termux/files"
 
 msg="
-$cy   WelcMux$vd - Apresentação para innício de Shell Termux
+$cy   WelcMux$vd - Apresentação para início de Shell Termux
 
    Opções de uso:
 

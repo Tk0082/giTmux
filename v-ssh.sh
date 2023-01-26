@@ -44,11 +44,11 @@ echo "
 
 #-----------------------------------------------------------------------------------------------#
 
-v="[38;5;160;1m"
-k="[38;51;30m"
-vd="[38;5;76;1m"
-cy="[38;5;80;1m"
-of="[0m"
+v="\033\e[38;5;160;1m"
+k="\033\e[38;51;30m"
+vd="\033\e[38;5;76;1m"
+cy="\033\e[38;5;80;1m"
+of="\033\e[0m"
 c=clear
 dir=/data/data/com.termux/files/usr/share/vssh
 dirt=/data/data/com.termux/files/usr/tmp
@@ -145,13 +145,14 @@ remove(){
 }
 
 con(){
+
 	setterm --cursor on
 	ssh $usr@$ip -p $port
 	if [ ! $con ];then
 		$c
 		echo -ne "$v ### SAINDO! ###"; sleep 1.5
 		$c
-		exit 1
+		exit 0
 	fi
 	return
 }

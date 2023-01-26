@@ -94,7 +94,7 @@ remove(){
 }
 
 get_info(){
-	title=$azd$usr@$HOSTNAME
+	title=$usr@$HOSTNAME
 	#d=$(uname -a |awk '{print $2}')
 	#d=$(uname -n)
 	#d=$(termux-info |grep TERMUX_VER* |sed 's/.*=//g')

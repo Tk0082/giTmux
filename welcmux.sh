@@ -28,12 +28,12 @@ if [ $(whoami) == 'root' ]; then
    bash /data/data/com.termux/files/usr/bin/welcmux
    clear
    cd $HOME
-   PS1='[1;31m[\u:[1;30m\w[1;31m]\$[0;32m '
+   PS1='\033\e[1;31m>>\u:\033\e[1;30m\w\033\e[1;31m<<\$\033\e[0;32m '
 else
    clear
    bash /data/data/com.termux/files/usr/bin/welcmux
    cd $HOME
-   PS1='[1;32m[[1;30m\W[1;32m]\$[0;36m '
+   PS1='\033\e[1;32m>>\033\e[1;30m\W\033\e[1;32m<<\$\033\e[0;36m '
 fi
 "
 ############################################################
@@ -42,12 +42,12 @@ fi
 c=clear
 
 # Cores
-k='[1;30m'
-az='[1;34m'
-vd='[1;32m'
-vm='[1;31m'
-cy='[1;36m'
-z='[0m'
+k='\033\e[1;30m'
+az='\033\e[1;34m'
+vd='\033\e[1;32m'
+vm='\033\e[1;31m'
+cy='\033\e[1;36m'
+z='\033\e[0m'
 
 dp=0
 dir="/data/data/com.termux/files"

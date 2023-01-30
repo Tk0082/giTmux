@@ -26,14 +26,14 @@
 :,
 if [ $(whoami) == 'root' ]; then
    clear
-   bash /data/data/com.termux/files/usr/bin/welcmux
    cd $HOME
-   PS1='[1;31m[\u:[1;30m\w[1;31m]\$[0;32m '
+   bash /data/data/com.termux/files/usr/bin/welcmux
+   PS1='\033\e[1;31m[\u:\033\e[1;30m\w\033\e[1;31m]\$\033\e[0;32m '
 else
    clear
-   bash /data/data/com.termux/files/usr/bin/welcmux
    cd $HOME
-   PS1='[1;32m[[1;30m\W[1;32m]\$[0;36m '
+   bash /data/data/com.termux/files/usr/bin/welcmux
+   PS1='\033\e[1;32m[\033\e[1;30m\W\033\e[1;32m]\$\033\e[0;36m '
 fi
 ,
 ############################################################

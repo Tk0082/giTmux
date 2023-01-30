@@ -101,11 +101,11 @@ Debian | Ubuntu | Mint | Termux)
   for i in $prog; do
     pr=$(dpkg-query --list |grep -i $i )
     if [ ! "$pr" ];then
-      echo "$VRMi Instalando, $i.."
+      echo -e "$vd Instalando, $i.."
       apt-get install -y $i > /dev/null 2>&1 
     fi
     if [ -f "$pr" ];then
-      echo "$VRD Programa $i já instalado"
+      echo -e "$vd Programa $i já instalado"
     fi
   done
    ;;
@@ -113,11 +113,11 @@ RedHat | CentOS | Fedora)
   for i in $prog; do
     pr=$(rpm -qa |grep -i $i )
     if [ ! "$pr" ];then
-      echo "$VRMi Instalando, $i.."
+      echo -e "$vm Instalando, $i.."
       yum install -y $i > /dev/null 2>&1 
     fi
     if [ -f "$pr" ];then
-      echo "$VRD Programa $i já instalado"
+      echo -e "$vd Programa $i já instalado"
     fi
   done
   ;;

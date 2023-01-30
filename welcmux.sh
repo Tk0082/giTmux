@@ -23,19 +23,6 @@
 #     /data/data/com.termux/files/usr/etc/bash.bashrc
 #
 #  Comente a linha com PS1 e adicione estes comandos [do if até fi ]:
-:"
-if [ $(whoami) == 'root' ]; then
-   bash /data/data/com.termux/files/usr/bin/welcmux
-   clear
-   cd $HOME
-   PS1='\033\e[1;31m>>\u:\033\e[1;30m\w\033\e[1;31m<<\$\033\e[0;32m '
-else
-   clear
-   bash /data/data/com.termux/files/usr/bin/welcmux
-   cd $HOME
-   PS1='\033\e[1;32m>>\033\e[1;30m\W\033\e[1;32m<<\$\033\e[0;36m '
-fi
-"
 ############################################################
 #
 
@@ -50,7 +37,13 @@ cy='\033\e[1;36m'
 z='\033\e[0m'
 
 dp=0
-dir="/data/data/com.termux/files"
+dir="/bin"
+distro=$(cat /etc/*release*|grep NAME|sed 's/.*="//'|sed -n 1p|sed 's/ .*//g')
+
+[ -f /data/data/com.termux/files/usr/etc/motd ] && {
+   dir=/data/data/com.termux/files/usr/bin
+   distro=$(cat ~/../usr/etc/motd|grep Termux|sed 's/.* //g;s/!//g')
+}
 
 msg="
 $cy   WelcMux$vd - Apresentação para início de Shell Termux
@@ -66,7 +59,7 @@ $cy   WelcMux$vd - Apresentação para início de Shell Termux
 
 config(){
    $c
-   cp $0 $dir/usr/bin/welcmux
+   cp $0 $dir/welcmux
    echo -e "$vd Programa instalado, use$k [$cy wlcmux$k ]."
    sleep 1
    $c
@@ -75,7 +68,7 @@ config(){
 
 remove(){
    $c
-   rm -f $dir/usr/bin/welcmux
+   rm -f $dir/welcmux
    echo -e "$vm WemcMux Removido!"
    sleep 1
    $c
@@ -90,17 +83,35 @@ figlet
 sed
 grep
 "
+case $distro in
+Debian | Ubuntu | Mint | Termux)
   for i in $prog; do
     pr=$(dpkg-query --list |grep -i $i )
     if [ ! "$pr" ];then
       echo "$VRMi Instalando, $i.."
       apt-get install -y $i > /dev/null 2>&1 
-      dp=1
     fi
     if [ -f "$pr" ];then
       echo "$VRD Programa $i já instalado"
     fi
   done
+   ;;
+RedRat | CentOS | Fedora)
+  for i in $prog; do
+    pr=$(rpm -qa |grep -i $i )
+    if [ ! "$pr" ];then
+      echo "$VRMi Instalando, $i.."
+      yum install -y $i > /dev/null 2>&1 
+    fi
+    if [ -f "$pr" ];then
+      echo "$VRD Programa $i já instalado"
+    fi
+  done
+  ;;
+esac
+
+dp=1
+
 }
 
 display(){
@@ -108,7 +119,7 @@ $c
 FIG=$(figlet  "||| T4nkr0$ \\\\\\\\\\\\") # Mude para seu Nickname
 UN=$(uname -nosrm)
 echo -e "${az}$FIG"
-echo -e "$UN\n $z"
+echo -e "$distro - $UN\n $z"
 }
 
 case $1 in

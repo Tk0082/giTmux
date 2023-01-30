@@ -23,6 +23,19 @@
 #     /data/data/com.termux/files/usr/etc/bash.bashrc
 #
 #  Comente a linha com PS1 e adicione estes comandos [do if até fi ]:
+:,
+if [ $(whoami) == 'root' ]; then
+   clear
+   bash /data/data/com.termux/files/usr/bin/welcmux
+   cd $HOME
+   PS1='[1;31m[\u:[1;30m\w[1;31m]\$[0;32m '
+else
+   clear
+   bash /data/data/com.termux/files/usr/bin/welcmux
+   cd $HOME
+   PS1='[1;32m[[1;30m\W[1;32m]\$[0;36m '
+fi
+,
 ############################################################
 #
 
@@ -96,7 +109,7 @@ Debian | Ubuntu | Mint | Termux)
     fi
   done
    ;;
-RedRat | CentOS | Fedora)
+RedHat | CentOS | Fedora)
   for i in $prog; do
     pr=$(rpm -qa |grep -i $i )
     if [ ! "$pr" ];then

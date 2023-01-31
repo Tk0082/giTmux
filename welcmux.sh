@@ -72,6 +72,7 @@ $cy   WelcMux$vd - Apresentação para início de Shell Termux
 "
 
 config(){
+   $c
    cp $0 $dir/welcmux && chmod 777 $dir/welcmux
    echo -e "$vd Programa instalado, use$k [$cy wlcmux$k ]."
    sleep 2
@@ -105,7 +106,7 @@ Debian | Ubuntu | Mint | Termux)
       apt-get install -y $i > /dev/null 2>&1 
       dp=1
     fi
-    if [ -e "$pr" ];then
+    if [ -f "$pr" ];then
        $c
       echo -e "$vd Programa $i já instalado"
     fi
@@ -119,7 +120,7 @@ RedHat | CentOS | Fedora)
       yum install -y $i > /dev/null 2>&1 
       dp=1
     fi
-    if [ -e "$pr" ];then
+    if [ -f "$pr" ];then
        $c
       echo -e "$vd Programa $i já instalado"
     fi

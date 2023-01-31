@@ -4,8 +4,13 @@
 #	connect-ssh.sh								#
 #	    ** Interface que facilita a conexao via SSH, entre maquinas		#
 #										#
+<<<<<<< HEAD
 #	B^r@t4º					            		#
 #	tk0082@hotmail.com							#
+=======
+#	Alan Souza - B^r@t4º							#
+#	alan.bt@hotmail.com							#
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 #	10.02.2020								#
 #										#
 #-------------------------------------------------------------------------------#
@@ -44,11 +49,19 @@ echo "
 
 #-----------------------------------------------------------------------------------------------#
 
+<<<<<<< HEAD
 v="\033\e[38;5;160;1m"
 k="\033\e[38;51;30m"
 vd="\033\e[38;5;76;1m"
 cy="\033\e[38;5;80;1m"
 of="\033\e[0m"
+=======
+v="[38;5;160;1m"
+k="[38;51;30m"
+vd="[38;5;76;1m"
+cy="[38;5;80;1m"
+of="[0m"
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 c=clear
 dir=/data/data/com.termux/files/usr/share/vssh
 dirt=/data/data/com.termux/files/usr/tmp
@@ -76,6 +89,14 @@ for i in '| ' '/ ' '--' '\ '; do
 done
 }
 
+<<<<<<< HEAD
+=======
+con(){
+	setterm --cursor on
+	ssh $usr@$ip -p $port
+	return
+}
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 # Dependências de programa
 deps(){ 
 prog="
@@ -144,6 +165,7 @@ remove(){
 	exit 0
 }
 
+<<<<<<< HEAD
 con(){
 
 	setterm --cursor on
@@ -157,6 +179,8 @@ con(){
 	return
 }
 
+=======
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 connect(){
 dialog  --title ' CONEXAO SSH ' --yesno 'Conectar via SSH? ' 5 30 			# CONFIRMACAO DE CONEXAO
 if [ $? = 0 ]; then
@@ -183,10 +207,23 @@ if [ $? = 0 ]; then
 	dialog --stdout --yesno " ** Confirmar Conexao $usr@$ip:$port " 6 60		# CONFIRMACAO DE DADOS E
 	if [ $? = 0 ]; then								# INICIO DA CONEXAO
 		$c
+<<<<<<< HEAD
 		if [ ! $con ]; then
 			setterm --cursor off
 			load
       fi
+=======
+		while [ ! $con ]; do
+			setterm --cursor off
+			load
+			if [ ! $con ];then
+				$c
+				echo -ne "$v ### Erro em conexão! ###"; sleep 1.5
+				$c
+				exit 1
+			fi
+		done
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 		con
 		sleep 0.3
 	else
@@ -225,5 +262,9 @@ esac
 
 #-----------------------------------------------------------------------------------------------#
 
+<<<<<<< HEAD
 #=[I.G.W.T]==========
+=======
+# Tk082_
+>>>>>>> 3eadffe (Adicionando o programa V-SSH)
 

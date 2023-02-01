@@ -39,7 +39,6 @@ fi
 ############################################################
 #
 
-c=clear
 
 # Cores
 k='\033\e[1;30m'
@@ -49,6 +48,7 @@ vm='\033\e[1;31m'
 cy='\033\e[1;36m'
 z='\033\e[0m'
 
+c=clear
 dp=0
 
 if [ -f "/data/data/com.termux/files/usr/etc/motd" ];then
@@ -88,7 +88,7 @@ remove(){
    $c
 }
 
-# Dependências de programa
+# Dependências de programas ==========
 deps(){
 $c
 
@@ -131,7 +131,8 @@ esac
 
 display(){
 $c
-FIG=$(figlet  "||| T4nkr0$ \\\\\\\\\\\\") # Mude para seu Nickname
+#==[  Mude para seu Nome/Apelido | Change to your Name/Nickname ]=======================
+FIG=$(figlet  "||| T4nkr0$ \\\\\\\\\\\\") 
 UN=$(uname -nosrm)
 echo -e "${az}$FIG"
 echo -e "$distro - $UN\n $z"

@@ -28,7 +28,7 @@ cla='[1m'
 z='[0m'
 dir="/data/data/com.termux/files"
 
-#==[VERSÃO]=========================
+#==[VERSÃO]=========================================
 vrs="$vd TmxFetch - Versão:$cy 1.1.1"
 
 msg="
@@ -45,14 +45,14 @@ $vd
   $cy     -v $vd-- Versão
 "
 
-# Verificação de usuário
+#==[ Verificação de usuário ]=======================
 if [ "$(whoami)" != "root" ];then
 	usr='tmux'
 else
 	usr='root'
 fi
 
-# Dependências de programa
+#==[ Dependências de programas ]====================
 # prog - Lista de programas a verificar
 deps(){
 prog="

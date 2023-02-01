@@ -1,29 +1,24 @@
 #!/usr/bin/env bash
-#################################################################################
-#										#
-#	connect-ssh.sh								#
-#	    ** Interface que facilita a conexao via SSH, entre maquinas		#
-#										#
-<<<<<<< HEAD
-#	B^r@t4º					            		#
-#	tk0082@hotmail.com							#
-=======
-#	Alan Souza - B^r@t4º							#
-#	alan.bt@hotmail.com							#
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
-#	10.02.2020								#
-#										#
-#-------------------------------------------------------------------------------#
-#										#
-#	1.0 - 20.01.2018 - Testes de aplicação sem interface			#
-#	1.1 - 15.02.1018 - Configuração de parâmetros				#
-#	1.2 - 18.02.1018 - Interface com Dialog					#
-#										#
-#################################################################################
+##################################################################################
+#									            	                                       #
+#	connect-ssh.sh								                                          #
+#	    ** Interface que facilita a conexao via SSH, entre maquinas		         #
+#										                                                   #
+#	B^r@t4º					            		                                       #
+#	tk0082@hotmail.com							                                       #
+#	10.02.2020								                                             #
+#										                                                   #
+#--------------------------------------------------------------------------------#
+#										                                                   #
+#	1.0 - 20.01.2018 - Testes de aplicação sem interface			                  #
+#	1.1 - 15.02.1018 - Configuração de parâmetros				                     #
+#	1.2 - 18.02.1018 - Interface com Dialog					                        #
+#										                                                   #
+##################################################################################
 
-#-------------------------------------------------------------------------------#
-# SETANDO AS CORES DE EXIBICAO - Sera criado um arquivo em /home/.dialogrc	#
-#-------------------------------------------------------------------------------#
+#--------------------------------------------------------------------------------#
+# SETANDO AS CORES DE EXIBICAO - Sera criado um arquivo em /home/.dialogrc	      #
+#--------------------------------------------------------------------------------#
 dp=0
 
 dialog --create-rc $HOME/.dialogrc
@@ -47,21 +42,14 @@ echo "
   searchbox_border_color 	= (GREEN, BLACK, OFF) 
   " > $HOME/.dialogrc
 
-#-----------------------------------------------------------------------------------------------#
+#--------------------------------------------------------------------------------#
 
-<<<<<<< HEAD
 v="\033\e[38;5;160;1m"
 k="\033\e[38;51;30m"
 vd="\033\e[38;5;76;1m"
 cy="\033\e[38;5;80;1m"
 of="\033\e[0m"
-=======
-v="[38;5;160;1m"
-k="[38;51;30m"
-vd="[38;5;76;1m"
-cy="[38;5;80;1m"
-of="[0m"
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
+
 c=clear
 dir=/data/data/com.termux/files/usr/share/vssh
 dirt=/data/data/com.termux/files/usr/tmp
@@ -89,14 +77,6 @@ for i in '| ' '/ ' '--' '\ '; do
 done
 }
 
-<<<<<<< HEAD
-=======
-con(){
-	setterm --cursor on
-	ssh $usr@$ip -p $port
-	return
-}
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
 # Dependências de programa
 deps(){ 
 prog="
@@ -165,9 +145,7 @@ remove(){
 	exit 0
 }
 
-<<<<<<< HEAD
 con(){
-
 	setterm --cursor on
 	ssh $usr@$ip -p $port
 	if [ ! $con ];then
@@ -179,12 +157,14 @@ con(){
 	return
 }
 
-=======
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
 connect(){
-dialog  --title ' CONEXAO SSH ' --yesno 'Conectar via SSH? ' 5 30 			# CONFIRMACAO DE CONEXAO
+
+# CONFIRMACAO DE CONEXAO
+dialog  --title ' CONEXAO SSH ' --yesno 'Conectar via SSH? ' 5 30 			
 if [ $? = 0 ]; then
-	dialog --infobox 'A seguir, alguns ajustes para conectar..' 4 30; sleep 1; 	# DADOS DA CONEXAO
+
+   # DADOS DA CONEXAO
+	dialog --infobox 'A seguir, alguns ajustes para conectar..' 4 30; sleep 1; 	
 
 	usr=$( dialog --stdout --inputbox " ** Qual o usuario: " 5 40 )
 	[ "$usr" ] || {
@@ -203,27 +183,16 @@ if [ $? = 0 ]; then
 	port=$( dialog --stdout --inputbox ' ** Informe a porta [Padrão 22]: ' 5 40 )
 	[ "$port" ] ||  
 		port=22 
+   
+   # CONFIRMACAO DE DADOS E INICIO DA CONEXAO
+	dialog --stdout --yesno " ** Confirmar Conexao $usr@$ip:$port " 6 60 
 
-	dialog --stdout --yesno " ** Confirmar Conexao $usr@$ip:$port " 6 60		# CONFIRMACAO DE DADOS E
-	if [ $? = 0 ]; then								# INICIO DA CONEXAO
+	if [ $? = 0 ]; then							
 		$c
-<<<<<<< HEAD
 		if [ ! $con ]; then
 			setterm --cursor off
 			load
       fi
-=======
-		while [ ! $con ]; do
-			setterm --cursor off
-			load
-			if [ ! $con ];then
-				$c
-				echo -ne "$v ### Erro em conexão! ###"; sleep 1.5
-				$c
-				exit 1
-			fi
-		done
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
 		con
 		sleep 0.3
 	else
@@ -247,24 +216,22 @@ fi
 }
 
 case $1 in
- -h) 
-	$c
-       	echo -e "$msg"
+ -h) $c
+   echo -e "$msg"
 	echo -ne "$vd  Pressione 'Enter' para sair: ";read
-        $c ;;
+   $c ;;
  -c) configure ;;
  -r) remove ;;
  '') connect ;;
- * ) $c; echo "$v Opção inválida!"
-     sleep 1
-     $c ;;
+ * ) $c
+   echo -e "$v Opção inválida!"
+   sleep 1
+   $c ;;
 esac
 
-#-----------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------#
 
-<<<<<<< HEAD
 #=[I.G.W.T]==========
-=======
+
 # Tk082_
->>>>>>> 3eadffe (Adicionando o programa V-SSH)
 

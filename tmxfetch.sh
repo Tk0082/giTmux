@@ -97,7 +97,7 @@ remove(){
 get_info(){
 	title=$usr@$HOSTNAME
 	#d=$(uname -a |awk '{print $2}')
-	#d=$(uname -n)
+	da=$(uname -m |sed 's/^a/A/')
 	#d=$(termux-info |grep TERMUX_VER* |sed 's/.*=//g')
 	d=$(compgen -e TERMUX_VERSION | while read v; do echo "${!v}"; done)
 	os=$(uname -o)
@@ -105,14 +105,14 @@ get_info(){
 	knm=$(uname -s)
 	#kvs=$(cat /proc/sys/kernel/osrelease)
 	kvs=$(uname -r)
-	time=$(uptime | awk '{print $3}')"min.."
+	time=$(uptime | awk '{print $3}'|sed 's/,//')" min.."
 	shell=$(basename $SHELL)
 	#resol=$(xrand | sed -n '1p' | sed 's/.current.//g;s/,.*//g;s/ //g')
 	#d_cpu=$(sudo cat /proc/cpuinfo | grep -o 'model name.*' | sed -n 1p | sed 's/.*:.//g;s/(.*)//g')
 	d_cpu=$(lscpu |grep -i 'model name' | sed 's/.* //g')
-	d_mem=$(echo "scale=1;$(cat /proc/meminfo | sed -n 1p | tr -d [A-Za-z:' '])" / 1000000 | bc)" GB"
-	d_memfree=$(echo "scale=2;$(cat /proc/meminfo | sed -n 2p | tr -d [A-Za-z:' '])" / 1000000 | bc)" MB"
-	d_arch=$(getconf LONG_BIT)"-bit"
+	d_mem=$(echo "scale=1;$(cat /proc/meminfo | sed -n 1p | tr -d [A-Za-z:' '])" / 1000000 | bc)" Gb"
+	d_memfree=$(echo "scale=2;$(cat /proc/meminfo | sed -n 3p | tr -d [A-Za-z:' '])" / 1000000 | bc)" Gb"
+	d_arch=$(getconf LONG_BIT)"-bits"
 	d_char=$(expr length "$title"); qtd=
 	for i in $(seq 1 $d_char); do
 		qtd="$qtd─"
@@ -136,7 +136,7 @@ $azd Uptime:$cy	 $time $zr
 $azd CPU:$cy		 $d_cpu
 $azd RAM:$cy		 $d_mem
 $azd Mem Free:$cy	 $d_memfree
-$azd Architeture:$cy	 $d_arch
+$azd Architeture:$cy	 $da $d_arch
 
 EOF
 }
@@ -182,7 +182,7 @@ case $1 in
       ;;
    '')
       deps
-      paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)" )
+      paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)")
       ;;
    -r)
       remove ;;

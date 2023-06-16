@@ -81,6 +81,8 @@ done
 deps(){ 
 prog="
 dialog
+setterm
+openssh
 "
   for i in $prog; do
     pr=$(dpkg-query --list |grep -i $i )
@@ -148,7 +150,7 @@ remove(){
 con(){
 	setterm --cursor on
 	ssh $usr@$ip -p $port
-	if [ ! $con ];then
+	if [ $con == 0 ];then
 		$c
 		echo -ne "$v ### SAINDO! ###"; sleep 1.5
 		$c
@@ -189,10 +191,10 @@ if [ $? = 0 ]; then
 
 	if [ $? = 0 ]; then							
 		$c
-		if [ ! $con ]; then
-			setterm --cursor off
-			load
-      fi
+	   while [ ! $con ]; do
+		   setterm --cursor off
+		   load
+      done
 		con
 		sleep 0.3
 	else

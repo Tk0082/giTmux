@@ -13,9 +13,7 @@
 #
 ####################################################
 
-clear
-
-dp=0
+dp=
 c=clear
 vc='[38;2;179;212;64m'
 vm='[38;2;120;144;45m'
@@ -54,22 +52,22 @@ else
 fi
 
 #==[ Dependências de programas ]====================
-# prog - Lista de programas a verificar
 deps(){
+
+# Lista de programas a verificar instalação
 prog="
 getconf
-bc
+bc 
 sed
 grep
 "
+
   for i in $prog; do
-    pr=$(dpkg-query --list |grep -i $i )
+    pr=$(dpkg-query --list |grep -i ^[$i] )
     if [ ! "$pr" ];then
       echo "$vm Instalando, $i.."
-      apt-get install -y $i > /dev/null 2>&1
-      dp=1
-      clear
-    fi
+      apt-get install -y $i > /dev/null 2>&1 
+	fi
     if [ -f "$pr" ];then
       echo "$vd Programa $i já instalado"
     fi
@@ -78,11 +76,11 @@ grep
 
 config(){
    $c
-   cp $0 $dir/usr/bin/tmxfetch
-   echo -e "$vd Programa instalado, use:$k [$cy tmxfetch$k ].$z"
+   deps
+   cp -f $0 $dir/usr/bin/tmxfetch
+   echo -e "$vd Programa instalado, use:$k [$cy tmxfetch$k ].$z\n\n"
    sleep 1
    exit 0
-   $c
 }
 
 remove(){
@@ -96,7 +94,6 @@ remove(){
 
 get_info(){
 	title=$usr@$HOSTNAME
-	#d=$(uname -a |awk '{print $2}')
 	da=$(uname -m |sed 's/^a/A/')
 	#d=$(termux-info |grep TERMUX_VER* |sed 's/.*=//g')
 	d=$(compgen -e TERMUX_VERSION | while read v; do echo "${!v}"; done)
@@ -173,7 +170,8 @@ droid="
 
 case $1 in
    -c)
-      config ;;
+      config 
+	  ;;
    -h)
       $c
       echo -e "$msg"
@@ -181,16 +179,19 @@ case $1 in
       $c
       ;;
    '')
-      deps
-      paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)")
+	  $c
+	  paste <(printf "%s" "$droid") <(printf "%s" "$(display_info)")
       ;;
    -r)
-      remove ;;
+      remove 
+	  ;;
    -v)
       $c
       echo -e "$vrs"
       sleep 1.5
-      $c ;;
+      $c 
+	  exit 0
+	  ;;
    *)
       $c
       echo -e "$vd Opção inválida, nada a fazer!$z"

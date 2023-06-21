@@ -59,7 +59,7 @@ br1="$k]"
 
 msg="
 $vd
-  V-SSH simplifica o uso de conexao SSH, com uma interface de fácil uso.
+  V-SSH simplifica a conexao SSH, com uma interface de fácil uso.
 
   Uso:
   $vd	Caso já configurado no sistema,$cy vssh$vd apenas.

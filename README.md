@@ -19,8 +19,8 @@
 - WELCMUX
   
   Apresentação para início do terminal, configurar chamada 
-  no seu /etc/bash.bashrc ou /usr/bin/login
+  no seu TermuxPath/etc/bash.bashrc ou TermuxPath/usr/bin/login
 
-     ./welcmux.sh -h
+      ./welcmux.sh -h
 
 

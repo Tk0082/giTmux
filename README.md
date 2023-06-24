@@ -15,8 +15,7 @@
   
       ./tmxfetch.sh
 
-![tmxfetch](https://github.com/Tk0082/giTmux/assets/105382833/d770fd63-1364-4a30-ac78-8f301492b9d0)
-
+![tmxfetch](https://github.com/Tk0082/giTmux/assets/105382833/54b7909d-cf1c-4fef-8dff-39750de8aa5f)
 
 
 - WELCMUX
@@ -26,5 +25,5 @@
 
       ./welcmux.sh -h
 
-![welcmux](https://github.com/Tk0082/giTmux/assets/105382833/0dbf980d-1360-4154-9a27-09702b8def75)
+![welcmux](https://github.com/Tk0082/giTmux/assets/105382833/05dacbbb-c82a-4c50-b27b-367d6c4100d3)
 

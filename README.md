@@ -23,4 +23,5 @@
 
       ./welcmux.sh -h
 
+  ![tmxfetch](https://github.com/Tk0082/giTmux/assets/105382833/0dbf980d-1360-4154-9a27-09702b8def75)
 

@@ -16,7 +16,7 @@
   
       ./tmxfetch.sh
 
-  <p align="center"><img src="https://github.com/Tk0082/giTmux/assets/105382833/54b7909d-cf1c-4fef-8dff-39750de8aa5f" width="50%" /></p>
+  <p align="center"><img src="https://github.com/Tk0082/giTmux/assets/105382833/54b7909d-cf1c-4fef-8dff-39750de8aa5f" width="80%" /></p>
 
 -----------
 
@@ -27,7 +27,7 @@
 
       ./welcmux.sh -h
 
-  <p align=center"><img src="https://github.com/Tk0082/giTmux/assets/105382833/05dacbbb-c82a-4c50-b27b-367d6c4100d3" width="50%" /></p>
+  <p align="center"><img src="https://github.com/Tk0082/giTmux/assets/105382833/05dacbbb-c82a-4c50-b27b-367d6c4100d3" width="80%" /></p>
 
 -----------
 

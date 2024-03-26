@@ -38,4 +38,6 @@
 
       ./removeapp.sh -h
 
+![RemoveAppsHelp](https://github.com/Tk0082/giTmux/assets/105382833/7a0fbc59-acfb-4d29-88f1-22263da7e20e) |
+
 -----------

@@ -38,6 +38,9 @@
 
       ./removeapp.sh -h
 
-![RemoveAppsHelp](https://github.com/Tk0082/giTmux/assets/105382833/7a0fbc59-acfb-4d29-88f1-22263da7e20e) |
+----------|----------|----------
+![RemoveAppsHelp](https://github.com/Tk0082/giTmux/assets/105382833/7a0fbc59-acfb-4d29-88f1-22263da7e20e) | ![RemoveAppsList](https://github.com/Tk0082/giTmux/assets/105382833/c4220cf9-0da2-4b00-b799-6e77bd5009f9) | ![RemoveAppsDisableAll](https://github.com/Tk0082/giTmux/assets/105382833/10c1aa6e-591f-4024-b8f0-4da8f5bc7046)
+
+
 
 -----------

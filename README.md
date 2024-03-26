@@ -2,7 +2,7 @@
 ## Repo de scripts próprios para o app Termux
 
 
-###- V-SSH
+  ### V-SSH
 
   Conexão ssh com inteface gráfica amigável, uso:
 
@@ -10,7 +10,7 @@
 
 -----------
 
-###- TMXFETCH
+  ### TMXFETCH
 
   Fetch para o Termux, com informações do sistema:
   
@@ -20,25 +20,23 @@
 
 -----------
 
-###- WELCMUX
+  ### WELCMUX
   
   Apresentação para início do terminal, configurar chamada 
   no seu TermuxPath/etc/bash.bashrc ou TermuxPath/usr/bin/login
 
       ./welcmux.sh -h
 
-![welcmux](https://github.com/Tk0082/giTmux/assets/105382833/05dacbbb-c82a-4c50-b27b-367d6c4100d3)
+  <img src="https://github.com/Tk0082/giTmux/assets/105382833/05dacbbb-c82a-4c50-b27b-367d6c4100d3" width="200px" align="center" />
 
 -----------
 
-###- REMOVEAPPS
+  ### REMOVEAPPS
 
   Programa que facilita a Remoção (Ou Desativação) de Apps Boatwares do Celular.
   Necessário ROOT
 
-    '''
     ./removeapp.sh -h
-    '''
 
 <div width="100%" align="center">
   <img src="https://github.com/Tk0082/giTmux/assets/105382833/7a0fbc59-acfb-4d29-88f1-22263da7e20e" width="29%" align="left"/>

@@ -55,7 +55,7 @@ dir=/data/data/com.termux/files/usr/share/vssh
 dirt=/data/data/com.termux/files/usr/tmp
 dirb=/data/data/com.termux/files/usr/bin
 brr="$k[$v CONECTANDO $k]$v==============================$k[ "
-br1="$k]"
+br1=" $k]"
 
 msg="
 $vd

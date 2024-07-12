@@ -33,7 +33,7 @@
 
   ### REMOVEAPPS
 
-  Programa que facilita a Remoção (Ou Desativação) de Apps Boatwares do Celular.
+  Programa que facilita a Remoção (Ou Desativação) de Apps Bloatwares do Celular.
   Necessário ROOT
 
     ./removeapp.sh -h
